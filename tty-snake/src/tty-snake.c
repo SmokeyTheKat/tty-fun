@@ -8,7 +8,6 @@
 #include <unistd.h>
 #include <termios.h>
 #include <pthread.h>
-#include <dbs.h>
 
 #include "utils.h"
 #include "list.h"
@@ -17,7 +16,6 @@
 
 int main(int argc, char** argv)
 {
-	dbs_start(0, "0.0.0.0");
 	srand(time(0));
 	setbuf(stdout, NULL);
 	getch_init();
@@ -46,8 +44,6 @@ int main(int argc, char** argv)
 	while (1) snake_update(&snake);
 
 	cursor_move_to(0, 34);
-
-	dbs_end(0);
 
 	screen_restore();
 

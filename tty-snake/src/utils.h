@@ -103,7 +103,6 @@ void* read_input(void* v_key_out)
 	{
 		*key_out = getch();
 		char str[2] = { *key_out, 0 };
-		dbs_log(0, str);
 	}
 }
 

@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <termios.h>
 #include <pthread.h>
-#include <dbs.h>
 
 #include "list.h"
 #include "pos.h"
@@ -147,7 +146,6 @@ bool snake_hit_wall(struct snake* snake)
 	struct pos pos = list_last(&snake->cells, struct pos);
 	bool res = pos.x >= snake->game->width || pos.y >= snake->game->height ||
 		   pos.x < 0 || pos.y < 0;
-	dbs_logf(0, "WAL RESLUT: %d -> x:%d", res, pos.x);
 	return res;
 }
 
@@ -159,7 +157,6 @@ bool snake_hit_self(struct snake* snake)
 		{
 			if (i != j && pos_cmp(*i, *j))
 			{
-				dbs_logf(0, "hit self: [%d, %d] [%d, %d]", i->x, i->y, j->x, j->y);
 				return true;
 			}
 		}
